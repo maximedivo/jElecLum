@@ -11,31 +11,29 @@ import jElecLum.core.matiere.Matiere;
 
 public class Conducteur {
 	
-	private Canalisation parent;
+	private Canalisation parent; // est-ce utile??
 	private float section;
-	private Matiere ame;
-	private Isolant isolant;
+	float longueur;
+	ConducType conducType;
 	
-	public Conducteur(float section, Matiere ame, Isolant isolant) {
-		this.section = section;
-		this.ame = ame;
-		this.isolant = isolant;
+	public Conducteur(float longueur, float section, ConducType conducType, Canalisation parent) {
+		this.parent = parent;
+		this.conducType = conducType;
+		if(!this.setSection(section))
+			this.section = this.conducType.getSections().get(0);
+		this.longueur = longueur;
+	}
+		
+	public float getSection() {
+		return this.section;
 	}
 	
-	public float rbx (int x) {
-		switch (x){
-		case 0:
-			return (float)this.ame.getRho0()/this.section;
-		case 1:
-			return (float)this.ame.getRho0()*this.isolant.coef1()/this.section;
-		case 2:
-			return (float)this.ame.getRho0()*this.isolant.coef2(this.section)/this.section;
-		case 3:
-			return (float)this.ame.getRho0()*this.isolant.coef3(this.section)/this.section;
-		default:
-			return 0f;
+	public boolean setSection(float section) {
+		if (this.conducType.getSections().contains(section)) {
+			this.section = section;
+			return true;
 		}
-		
+		return false;
 	}
 	
 }

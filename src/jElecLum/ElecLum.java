@@ -1,5 +1,7 @@
 package jElecLum;
 
+import jElecLum.core.ConducType;
+import jElecLum.core.Conducteur;
 import jElecLum.core.Noeud;
 import jElecLum.core.Reseau;
 import jElecLum.core.source.Context;
@@ -48,6 +50,13 @@ public class ElecLum {
 		System.out.println("Rs (min) = " + sourceTest.getRSource(Context.Max));
 		System.out.println("Xs (max) = " + sourceTest.getXSource(Context.Min));
 		System.out.println("Xs (min) = " + sourceTest.getXSource(Context.Max));
+		
+		Conducteur c1 = new Conducteur(25f, 0f, ConducType.U1000R2V, null);
+		System.out.println("S = " + c1.getSection());
+		System.out.println("S = " + c1.setSection(22f));
+		System.out.println("S = " + c1.getSection());
+		System.out.println("S = " + c1.setSection(70f));
+		System.out.println("S = " + c1.getSection());
 	}
 	
 }
