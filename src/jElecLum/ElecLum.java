@@ -77,6 +77,7 @@ public class ElecLum {
 		System.out.println("Ik1max = " + sourceTest.getIk(Context.Ik1Max));
 		System.out.println("Ik2min = " + sourceTest.getIk(Context.Ik2Min));
 		System.out.println("Ik1min = " + sourceTest.getIk(Context.Ik1Min));
+		
 	}
 	
 }
