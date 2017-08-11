@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jElecLum.core;
+package jElecLum.core.canalisation;
 
 /**
  * @author SARPROJA

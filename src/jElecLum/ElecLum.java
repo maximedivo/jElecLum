@@ -1,11 +1,8 @@
 package jElecLum;
 
-import jElecLum.core.ConducType;
-import jElecLum.core.Conducteur;
-import jElecLum.core.Noeud;
-import jElecLum.core.Reseau;
-import jElecLum.core.source.Context;
-import jElecLum.core.source.SrcElecTransfo;
+import jElecLum.core.*;
+import jElecLum.core.canalisation.*;
+import jElecLum.core.source.*;
 
 /**
 *
@@ -41,22 +38,45 @@ public class ElecLum {
 		System.out.println("Rt = " + sourceTest.getRTransfo());
 		System.out.println("Xt = " + sourceTest.getXTransfo());
 		System.out.println();
-		System.out.println("Rq (max) = " + sourceTest.getResAmont().getRres(un, Context.Min));
-		System.out.println("Rq (min) = " + sourceTest.getResAmont().getRres(un, Context.Max));
-		System.out.println("Xq (max) = " + sourceTest.getResAmont().getXres(un, Context.Min));
-		System.out.println("Xq (min) = " + sourceTest.getResAmont().getXres(un, Context.Max));
+		System.out.println("Rq (max) = " + sourceTest.getResAmont().getRres(un, Context.Ik1Min));
+		System.out.println("Rq (min) = " + sourceTest.getResAmont().getRres(un, Context.Ik3Max));
+		System.out.println("Xq (max) = " + sourceTest.getResAmont().getXres(un, Context.Ik1Min));
+		System.out.println("Xq (min) = " + sourceTest.getResAmont().getXres(un, Context.Ik3Max));
 		System.out.println();
-		System.out.println("Rs (max) = " + sourceTest.getRSource(Context.Min));
-		System.out.println("Rs (min) = " + sourceTest.getRSource(Context.Max));
-		System.out.println("Xs (max) = " + sourceTest.getXSource(Context.Min));
-		System.out.println("Xs (min) = " + sourceTest.getXSource(Context.Max));
+		System.out.println("Rs (max) = " + sourceTest.getRSource(Context.Ik1Min));
+		System.out.println("Rs (min) = " + sourceTest.getRSource(Context.Ik3Max));
+		System.out.println("Xs (max) = " + sourceTest.getXSource(Context.Ik1Min));
+		System.out.println("Xs (min) = " + sourceTest.getXSource(Context.Ik3Max));
+		System.out.println();
+		System.out.println();
 		
-		Conducteur c1 = new Conducteur(25f, 0f, ConducType.U1000R2V, null);
-		System.out.println("S = " + c1.getSection());
-		System.out.println("S = " + c1.setSection(22f));
-		System.out.println("S = " + c1.getSection());
-		System.out.println("S = " + c1.setSection(70f));
-		System.out.println("S = " + c1.getSection());
+		Canalisation liTr = new Canalisation(10, true, true, false, ConducType.U1000R2V, CanaType.MONO_ESPACE);
+		liTr.setSection(Canalisation.P, 240f);
+		liTr.setSection(Canalisation.N, 240f);
+		Canalisation c1 = new Canalisation(12, true, true, false, ConducType.U1000R2V, CanaType.MULTI);
+		c1.setSection(Canalisation.P, 16f);
+		c1.setSection(Canalisation.N, 16f);
+		
+		System.out.println("RbPh = " + liTr.getRbPh(0));
+		System.out.println("RbPhPh = " + liTr.getRbPhPh(0));
+		System.out.println("RbPhN = " + liTr.getRbPhN(0));
+		System.out.println();
+		System.out.println();
+		
+		SrcResAval resAval = (SrcResAval) sourceTest.getResAval();
+		resAval.setLiaisonTr(liTr);
+		//resAval.addLiaisonAval(c1);
+		System.out.println("Ik3max Transfo = " + sourceTest.getIkSrc(Context.Ik3Max));
+		System.out.println("Ik2max Transfo = " + sourceTest.getIkSrc(Context.Ik2Max));
+		System.out.println("Ik1max Transfo = " + sourceTest.getIkSrc(Context.Ik1Max));
+		System.out.println("Ik2min Transfo = " + sourceTest.getIkSrc(Context.Ik2Min));
+		System.out.println("Ik1min Transfo = " + sourceTest.getIkSrc(Context.Ik1Min));
+		System.out.println();
+		System.out.println("Ik3max = " + sourceTest.getIk(Context.Ik3Max));
+		System.out.println("Ik2max = " + sourceTest.getIk(Context.Ik2Max));
+		System.out.println("Ik1max = " + sourceTest.getIk(Context.Ik1Max));
+		System.out.println("Ik2min = " + sourceTest.getIk(Context.Ik2Min));
+		System.out.println("Ik1min = " + sourceTest.getIk(Context.Ik1Min));
 	}
 	
 }

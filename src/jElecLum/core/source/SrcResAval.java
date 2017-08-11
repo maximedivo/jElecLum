@@ -47,11 +47,59 @@ public class SrcResAval extends AbstractSrcRes{
 	
 	@Override
 	public float getRres(float un, Context context) {
+		int nRho;
+		nRho = (context.getRegle() == CtxRegle.Max) ? 0 : 1;
+		if (context.getCircuit() == CtxCircuit.P) {
+			float rbPh = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				rbPh += cana.getRbPh(nRho);
+			}
+			return this.liaisonTr.getRbPh(nRho) + rbPh;
+		} else if (context.getCircuit() == CtxCircuit.PP) {
+			float rbPhPh = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				rbPhPh += cana.getRbPhPh(nRho);
+			}
+			return this.liaisonTr.getRbPhPh(nRho) + rbPhPh;
+		} else if (context.getCircuit() == CtxCircuit.PN) {
+			float rbPhN = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				rbPhN += cana.getRbPhN(nRho);
+			}
+			return this.liaisonTr.getRbPhN(nRho) + rbPhN;
+		}
 		return 0f;
+	}
+	
+	public float getRres(Context context) {	
+		return this.getRres(0f, context);
 	}
 
 	@Override
 	public float getXres(float un, Context context) {
+		if (context.getCircuit() == CtxCircuit.P) {
+			float xbPh = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				xbPh += cana.getXbPh();
+			}
+			return this.liaisonTr.getXbPh() + xbPh;
+		} else if (context.getCircuit() == CtxCircuit.PP) {
+			float xbPhPh = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				xbPhPh += cana.getXbPhPh();
+			}
+			return this.liaisonTr.getXbPhPh() + xbPhPh;
+		} else if (context.getCircuit() == CtxCircuit.PN) {
+			float xbPhN = 0f;
+			for(Canalisation cana : this.liaisonsAvals) {
+				xbPhN += cana.getXbPhN();
+			}
+			return this.liaisonTr.getXbPhN() + xbPhN;
+		}
 		return 0f;
+	}
+	
+	public float getXres(Context context) {
+		return getXres(0f, context);
 	}
 }

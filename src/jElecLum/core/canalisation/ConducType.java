@@ -1,12 +1,10 @@
 /**
  * 
  */
-package jElecLum.core;
+package jElecLum.core.canalisation;
 
 import java.util.ArrayList;
 
-import jElecLum.core.isolant.Isolant;
-import jElecLum.core.matiere.Matiere;
 
 /**
  * @author SARPROJA
@@ -59,7 +57,7 @@ public class ConducType {
 		return this.isolant.getNom();
 	}
 	
-	public float getRb(int nRho, float section) {	
+	public float getRho(int nRho, float section) {	
 		switch (nRho){
 		case 0:
 			return (float) this.ame.getRho0();

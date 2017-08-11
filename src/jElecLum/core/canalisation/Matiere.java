@@ -1,4 +1,4 @@
-package jElecLum.core.matiere;
+package jElecLum.core.canalisation;
 
 /**
 *

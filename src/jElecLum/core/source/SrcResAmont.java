@@ -31,9 +31,9 @@ public class SrcResAmont extends AbstractSrcRes{
 	
 	protected float getZres(float un, Context context) {
 		float u = (float) (Math.pow((Constantes.m.getValeur() * un), 2));
-		if (context == Context.Max) {
+		if (context.getRegle() == CtxRegle.Max) {
 			return (float) (u / this.skqrMax);
-		}else if (context == Context.Min) {
+		}else if (context.getRegle() == CtxRegle.Min) {
 			return (float) (u / this.skqrMin);
 		}
 		return 0;

@@ -1,7 +1,4 @@
-package jElecLum.core;
-
-import jElecLum.core.isolant.Isolant;
-import jElecLum.core.matiere.Matiere;
+package jElecLum.core.canalisation;
 
 /**
 *
@@ -34,6 +31,10 @@ public class Conducteur {
 			return true;
 		}
 		return false;
+	}
+	
+	public float getRc(int nRho) {
+		return this.conducType.getRho(nRho, this.section) * this.longueur / this.section;
 	}
 	
 }

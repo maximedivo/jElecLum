@@ -37,4 +37,7 @@ public abstract class AbstractSrcElec {
 	public abstract float getRSource(Context context);
 	public abstract float getXSource(Context context);
 	
+	public abstract float getIkSrc(Context context);
+	public abstract float getIk(Context context);
+	
 }
