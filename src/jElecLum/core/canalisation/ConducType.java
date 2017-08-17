@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  */
 public class ConducType {
-	private static float[] LIST_SECTIONS = new float[] {1.5f, 2.5f, 4f, 6f, 10f, 12f, 16f, 25f, 35f, 50f, 70f, 95f, 150f, 240f, 300f, 500f, 630f};
+	private static float[] LIST_SECTIONS = new float[] {1.5f, 2.5f, 4f, 6f, 10f, 12f, 16f, 25f, 35f, 50f, 70f, 95f, 120f, 150f, 185f, 240f, 300f, 500f, 630f};
 	
 	public static ConducType U1000R2V = new ConducType("U 1000 R2V", "NF C32-321", Matiere.CUIVRE, Isolant.PR_EPR, new float[] {1.5f, 630f});
 	public static ConducType U1000RVFV = new ConducType("U 1000 RVFV", "NF C32-322", Matiere.CUIVRE, Isolant.PR_EPR, new float[] {1.5f, 300f});

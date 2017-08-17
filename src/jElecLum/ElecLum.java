@@ -51,8 +51,8 @@ public class ElecLum {
 		System.out.println();
 		
 		Canalisation liTr = new Canalisation(10, true, true, false, ConducType.U1000R2V, CanaType.MONO_ESPACE);
-		liTr.setSection(Canalisation.P, 240f);
-		liTr.setSection(Canalisation.N, 240f);
+		liTr.setSection(Canalisation.P, 185f);
+		liTr.setSection(Canalisation.N, 185f);
 		Canalisation c1 = new Canalisation(12, true, true, false, ConducType.U1000R2V, CanaType.MULTI);
 		c1.setSection(Canalisation.P, 16f);
 		c1.setSection(Canalisation.N, 16f);
