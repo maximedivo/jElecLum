@@ -1,5 +1,8 @@
 package jElecLum;
 
+import com.trolltech.qt.core.*;
+import com.trolltech.qt.gui.*;
+
 import jElecLum.core.*;
 import jElecLum.core.canalisation.*;
 import jElecLum.core.source.*;
@@ -51,9 +54,9 @@ public class ElecLum {
 		System.out.println();
 		
 		Canalisation liTr = new Canalisation(10, true, true, false, ConducType.U1000R2V, CanaType.MONO_ESPACE);
-		liTr.setSection(Canalisation.P, 185f);
-		liTr.setSection(Canalisation.N, 185f);
-		Canalisation c1 = new Canalisation(12, true, true, false, ConducType.U1000R2V, CanaType.MULTI);
+		liTr.setSection(Canalisation.P, 240f);
+		liTr.setSection(Canalisation.N, 240f);
+		Canalisation c1 = new Canalisation(15, true, true, false, ConducType.U1000R2V, CanaType.MULTI);
 		c1.setSection(Canalisation.P, 16f);
 		c1.setSection(Canalisation.N, 16f);
 		
@@ -78,6 +81,17 @@ public class ElecLum {
 		System.out.println("Ik2min = " + sourceTest.getIk(Context.Ik2Min));
 		System.out.println("Ik1min = " + sourceTest.getIk(Context.Ik1Min));
 		
+		//Qt		
+	    QApplication.initialize(args);
+	      
+	    String locale = QLocale.system().name();
+	    QTranslator translator = new QTranslator();
+	    translator.load("qt_" + locale, QLibraryInfo.location(QLibraryInfo.LibraryLocation.TranslationsPath));
+	    QApplication.installTranslator(translator);
+	      
+	    MainWindow win = new MainWindow();
+	    win.showMaximized();
+	    QApplication.execStatic();
 	}
 	
 }

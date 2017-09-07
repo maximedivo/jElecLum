@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/qtJambi/qtjambi-4.8.7.jar"/>
+	<classpathentry kind="lib" path="C:/qtJambi/qtjambi-native-win64-msvc2013x64-4.8.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

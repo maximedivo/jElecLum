@@ -15,8 +15,8 @@ public enum Constantes {
 	Cmax("Facteur de tension max", 1.05f),
 	Cmin("Facteur de tension min", .95f),
 	
-	SkqrMax("Puissance de court-circuit du réseau haute tension max", 500_000f),
-	SkqrMin("Puissance de court-circuit du réseau haute tension min", 6_000f),
+	SkqrMax("Puissance de court-circuit du réseau haute tension max", 250_000f),
+	SkqrMin("Puissance de court-circuit du réseau haute tension min", 250_000f),
 	
 	kRq("Coefficient Rq sur Xq", .100f),
 	kXq("Coefficient Xq sur Zq", .995f),
